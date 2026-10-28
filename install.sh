@@ -12,8 +12,11 @@ if command -v claude >/dev/null 2>&1; then
 else
   echo "Installing Claude Code..."
   if command -v npm >/dev/null 2>&1; then
-    npm install -g @anthropic-ai/claude-code
-  else
+    # Newer npm blocks install scripts unless allowed; Claude Code needs its postinstall.
+    npm install -g --allow-scripts=@anthropic-ai/claude-code @anthropic-ai/claude-code
+  fi
+  # Fallback: official native installer if npm is missing or the npm install did not work.
+  if ! claude --version >/dev/null 2>&1; then
     curl -fsSL https://claude.ai/install.sh | bash
   fi
 fi
