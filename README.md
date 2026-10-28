@@ -1,5 +1,8 @@
 # dotfiles
 
-Personal setup for GitHub Codespaces. `install.sh` runs automatically in every new or rebuilt Codespace and installs Claude Code.
+Personal setup for GitHub Codespaces. `install.sh` runs automatically in every new or rebuilt Codespace:
 
-Login is handled by the `CLAUDE_CODE_OAUTH_TOKEN` Codespaces secret, so nothing private is stored here.
+- installs Claude Code
+- writes `~/.wakatime.cfg` for Hackatime
+
+Keys come from Codespaces secrets (`CLAUDE_CODE_OAUTH_TOKEN`, `HACKATIME_API_KEY`), so nothing private is stored here.
